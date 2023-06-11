@@ -20,7 +20,7 @@ const Product = ({ data }) => {
   
 
   return (
-    <div className="flex flex-col hover:scale-110 justify-between rounded-md transition duration-300 ease-in max-h-[700px] border border-1 p-6 card">
+    <div className="flex flex-col hover:scale-110 justify-between rounded-md transition duration-300 ease-in max-h-[700px] border border-1 p-6 card ">
       <div >
         <p>{data.title}</p>
       </div>
