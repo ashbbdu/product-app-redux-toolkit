@@ -1,6 +1,6 @@
 const Spinner = () => {
     return (
-        <div>
+        <div className="flex items-center justify-center">
             <div className="spinner"></div>
         </div>
     )
