@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCard } from "../redux/Slices/cartSlice";
 
 const Product = ({ data }) => {
-  const { cart } = useSelector((state) => state);
+  const { cartData } = useSelector((state) => state.cart);
   const dispatch =  useDispatch()
 
   const addToCartHandler = () => {
@@ -13,7 +13,7 @@ const Product = ({ data }) => {
   }
 
   const removeFromCartHandler = () => {
-  dispatch(removeFromCard(data.id))
+  dispatch(removeFromCard(data))
   toast.error("Item Removed from Cart !")
   }
 
@@ -36,8 +36,8 @@ const Product = ({ data }) => {
       </div>
       <div>
         {/* cart k andear ek id jo data ki id k barbar hua to wo item already selected hoga , in that case show remove from cart else shoe add to cart */}
-        {cart.some((p) => p.id == data.id) ? (
-          <button  onClick={removeFromCartHandler}>Remove From Cart</button>
+        {cartData.some((p) => p.id == data.id) ? ( 
+         <button  onClick={removeFromCartHandler}>Remove From Cart</button>
         ) : (
           <button  onClick={addToCartHandler}>Add To Cart</button>
         )}

@@ -5,8 +5,8 @@ import { removeFromCard } from "../redux/Slices/cartSlice";
 const CartItem = ({ item, index }) => {
   const dispatch = useDispatch();
 
-  const removefromCartHanlder = (id) => {
-    dispatch(removeFromCard(id));
+  const removefromCartHanlder = (item) => {
+    dispatch(removeFromCard(item));
     toast.error("Item Removed from Cart !");
   };
 
@@ -22,7 +22,7 @@ const CartItem = ({ item, index }) => {
         </div>
         <div className="flex items-center justify-between mt-6">
           <h1>${item.price}</h1>
-          <div onClick={() => removefromCartHanlder(item.id)} className="bg-red-400 p-2 rounded-3xl cursor-pointer">
+          <div onClick={() => removefromCartHanlder(item)} className="bg-red-400 p-2 rounded-3xl cursor-pointer">
             {" "}
             <AiOutlineDelete />
           </div>

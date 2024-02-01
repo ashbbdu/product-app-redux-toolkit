@@ -5,17 +5,17 @@ import CartItem from "../components/CartItem";
 
 const Cart = () => {
   const [totalAmount, setTotalAmount] = useState(0);
-  const cart = useSelector((state) => state.cart);
+  const {cartData} = useSelector((state) => state.cart);
   useEffect(() => {
-    setTotalAmount(cart.reduce((acc, currentValue) => acc + currentValue.price, 0));
-  }, [cart]);
+    setTotalAmount(cartData.reduce((acc, currentValue) => acc + currentValue.price, 0));
+  }, [cartData]);
 
   return (
     <div className="flex flex-row justify-between py-2 px-2 max-w-6xl mx-auto  items-start">
-      {cart.length > 0 ? 
+      {6 > 0 ? 
        <div className="flex-1">
         {
-          cart.map((item , index) => {
+          cartData.map((item , index) => {
             return <CartItem item={item} key={index} />
           })
         }
@@ -30,10 +30,11 @@ const Cart = () => {
       )}
       <div className="flex-1 mt-20 ml-20">
         {
-          cart.length > 0 &&   <div>
+          // cart.length > 0 && 
+            <div>
           <p>Your Cart</p>
           <p>Summary</p>
-          <p>Total Items : {cart.length}</p>
+          <p>Total Items : {cartData.length}</p>
           <p>Total Amount : {totalAmount} </p>
         </div>
         }
